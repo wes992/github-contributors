@@ -1,41 +1,29 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { getRepoContributors, getUserInformation } from "../API";
+import React, { createContext, useContext, useState } from "react";
+import { getRepoContributors } from "../API";
 
 const ContributorContext = createContext();
 
 const ContributorContextProvider = ({ children }) => {
   const [contributors, setContributors] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
-  const [selectedUserInfo, setSelectedUserInfo] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    let _userInfo = getUserInformation(selectedUser.login);
-    _userInfo.then((result) => setSelectedUserInfo(result));
-  }, [selectedUser]);
-
-  const updateContributors = (repo) => {
+  const updateContributors = async (repo) => {
+    setSelectedUser(null);
+    setLoading(true);
     try {
-      getRepoContributors(repo).then((contributors) => {
-        if (!!contributors) {
-          const allContributors = contributors.reduce(
-            async (_contributors, contributor) => {
-              const contributorInfo = await getUserInformation(
-                contributor.login
-              );
-
-              _contributors = [..._contributors, contributorInfo];
-
-              return _contributors;
-            },
-            []
-          );
-          console.log(allContributors);
-          // setContributors(allContributors);
-        }
-      });
+      const repoContributors = await getRepoContributors(repo);
+      setContributors(repoContributors);
     } catch (err) {
       console.error(err);
     }
+    setLoading(false);
+  };
+
+  const updateSelectedUser = (user) => {
+    setLoading(true);
+    setSelectedUser(user);
+    setLoading(false);
   };
 
   const value = {
@@ -44,6 +32,9 @@ const ContributorContextProvider = ({ children }) => {
     selectedUser,
     setSelectedUser,
     updateContributors,
+    loading,
+    setLoading,
+    updateSelectedUser,
   };
   return (
     <ContributorContext.Provider value={value}>
