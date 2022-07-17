@@ -9,10 +9,12 @@
     "@mui/material": "^5.9.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
