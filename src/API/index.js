@@ -1,11 +1,17 @@
 import axios from "axios";
-import { auth } from "../auth";
+
+const { REACT_APP_USERNAME, REACT_APP_GH_TOKEN } = process.env;
+
+const auth = {
+  username: REACT_APP_USERNAME || "",
+  password: REACT_APP_GH_TOKEN || "",
+};
 
 export const getUserInformation = async (userName) => {
   let result;
   try {
     result = await axios.get(`https://api.github.com/users/${userName}`, {
-      auth: auth,
+      auth,
     });
     if (result.status === 200) {
       return result.data;
@@ -23,7 +29,7 @@ export const getRepoContributors = async (repo) => {
     result = await axios.get(
       `https://api.github.com/repos/${repo}/contributors`,
       {
-        auth: auth,
+        auth,
       }
     );
     if (result.status === 200) {
