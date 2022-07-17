@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App]
 
-You can start by cloning the repo.
+Will run either at [GH-pages](https://wes992.github.io/github-contributors) or
+
+If you want to run the app locally, you can start by cloning the repo.
 
 You will need to do a `yarn` or `npm install` to install dependencies intitially.
 
@@ -22,11 +24,15 @@ You may also see any lint errors in the console.
 
 ## AUTH
 
+Again, while running locally;
+
 App will run with public git rest API without Authorization;\
-but you will hit a rate limit. (It is something like 50/hour)
+but you will likely hit a rate limit. (It is something like 50/hour)
 
 Since I made this pretty quickly, I took the simple approach for auth.\
-I created a .env file with a REACT_APP_GH_TOKEN variable, which was a PAT to github.
+
+I created a .env file at src level and added a REACT_APP_GH_TOKEN variable, which was a PAT to github.\
+(i.e. = REACT_APP_GH_TOKEN=<PersonalAccessToken>)
 
 If you are hitting a rate limit, I advise to either add this .env var or wait until it resets.
 
