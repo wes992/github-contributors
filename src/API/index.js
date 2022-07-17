@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const { REACT_APP_GH_TOKEN } = process.env;
+const { REACT_APP_GH_TOKEN, REACT_APP_BASE_URL } = process.env;
 
 const config = {
+  baseURL: REACT_APP_BASE_URL || "https://api.github.com",
   headers: {
     Authorization: REACT_APP_GH_TOKEN ? `Bearer ${REACT_APP_GH_TOKEN}` : null,
   },
@@ -11,10 +12,7 @@ const config = {
 export const getUserInformation = async (userName) => {
   let result;
   try {
-    result = await axios.get(
-      `https://api.github.com/users/${userName}`,
-      config
-    );
+    result = await axios.get(`/users/${userName}`, config);
     if (result.status === 200) {
       return result.data;
     }
@@ -28,10 +26,7 @@ export const getUserInformation = async (userName) => {
 export const getRepoContributors = async (repo) => {
   let result;
   try {
-    result = await axios.get(
-      `https://api.github.com/repos/${repo}/contributors`,
-      config
-    );
+    result = await axios.get(`/repos/${repo}/contributors`, config);
     if (result.status === 200) {
       return result.data;
     }
