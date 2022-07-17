@@ -5,26 +5,28 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+.app-container {
+  width: 100%;
+  display: block;
+  padding: 5rem 1.5rem;
+  margin-top: 1rem auto;
+  min-width: 120px;
+}
+
 .body-font {
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.00938em;
 }
 
 .title {
   font-weight: 400;
   font-size: 1.5rem;
-  line-height: 1.334;
-  letter-spacing: 0em;
-  margin-bottom: 0.35em;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
   font-weight: 400;
   font-size: 0.875rem;
-  line-height: 1.43;
-  letter-spacing: 0.01071em;
 }
 
 .muted {
@@ -41,18 +43,6 @@
   margin-top: 2rem;
 }
 
-.app-container {
-  width: 100%;
-  margin-left: auto;
-  box-sizing: border-box;
-  margin-right: auto;
-  display: block;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 5rem;
-  margin-top: 1rem;
-  min-width: 120px;
-}
 .select-instructions {
   justify-content: center;
   display: flex;

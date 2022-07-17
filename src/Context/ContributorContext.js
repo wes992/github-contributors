@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { getRepoContributors } from "../API";
+import { getRepoContributors, getUserInformation } from "../API";
 
 const ContributorContext = createContext();
 
@@ -20,9 +20,16 @@ const ContributorContextProvider = ({ children }) => {
     setLoading(false);
   };
 
-  const updateSelectedUser = (user) => {
+  const getUser = async (name) => {
     setLoading(true);
-    setSelectedUser(user);
+    if (name) {
+      try {
+        const result = await getUserInformation(name);
+        setSelectedUser(result);
+      } catch (err) {
+        console.error(err);
+      }
+    }
     setLoading(false);
   };
 
@@ -34,7 +41,7 @@ const ContributorContextProvider = ({ children }) => {
     updateContributors,
     loading,
     setLoading,
-    updateSelectedUser,
+    getUser,
   };
   return (
     <ContributorContext.Provider value={value}>

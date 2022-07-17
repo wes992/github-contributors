@@ -7,21 +7,30 @@ import { Button, CardActions } from "@mui/material";
 import { useContributorContext } from "../Context/ContributorContext";
 
 const ContributorDetails = () => {
-  const { selectedUser, setSelectedUser } = useContributorContext();
-  const [user, setUser] = useState({});
-  const getuser = async (name) => {
-    if (name) {
-      const result = await getUserInformation(name);
+  const { selectedUser, setSelectedUser, getUser, loading } =
+    useContributorContext();
+  // const [user, setUser] = useState({});
+  // const getuser = async (name) => {
+  //   if (name) {
+  //     const result = await getUserInformation(name);
 
-      setUser(result);
-    }
-  };
+  //     setUser(result);
+  //   }
+  // };
 
   useEffect(() => {
-    getuser(selectedUser.login);
-  }, [selectedUser]);
+    getUser(selectedUser.login);
+  }, []);
 
-  const { avatar_url, name, login, bio, location, followers, following } = user;
+  const { avatar_url, name, login, bio, location, followers, following } =
+    selectedUser;
+
+  if (loading)
+    return (
+      <div className="main-container">
+        <div className="title">Content is loading..</div>
+      </div>
+    );
 
   return (
     <Card sx={{ width: 500 }}>

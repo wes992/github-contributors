@@ -6,12 +6,12 @@ import { CardActionArea } from "@mui/material";
 import { useContributorContext } from "../Context/ContributorContext";
 
 const ContributorCard = (contributor) => {
-  const { updateSelectedUser } = useContributorContext();
+  const { setSelectedUser } = useContributorContext();
   const { avatar_url, contributions, login } = contributor;
 
   return (
     <Card sx={{ width: 200 }}>
-      <CardActionArea onClick={() => updateSelectedUser(contributor)}>
+      <CardActionArea onClick={() => setSelectedUser(contributor)}>
         <CardMedia
           component="img"
           height="200"
