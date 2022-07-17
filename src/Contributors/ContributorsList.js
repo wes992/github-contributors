@@ -83,7 +83,6 @@ const ContributorsList = () => {
         />
 
         <ToggleButtonGroup
-          // color="blue"
           value={selectedView}
           exclusive
           onChange={handleChange}
