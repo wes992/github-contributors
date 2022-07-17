@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/github-contributors/static/css/main.9a6ca306.css",
+    "main.js": "/github-contributors/static/js/main.ea0eaa9d.js",
+    "index.html": "/github-contributors/index.html",
+    "main.9a6ca306.css.map": "/github-contributors/static/css/main.9a6ca306.css.map",
+    "main.ea0eaa9d.js.map": "/github-contributors/static/js/main.ea0eaa9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a6ca306.css",
+    "static/js/main.ea0eaa9d.js"
+  ]
+}
