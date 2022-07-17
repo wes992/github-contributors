@@ -24,9 +24,8 @@ App will run with public git rest API without Authorization;\
 but you will hit a rate limit. (It is something like 50/hour)
 
 Since I made this pretty quickly, I took the simple approach for auth.\
-I created an 'auth.js' folder at the root level under src and exported an auth constant from that folder.\
-(i.e -- export const auth = {username: <'username'>, password: <'password or PAT'>}).
+I created a .env file with a REACT_APP_GH_TOKEN variable, which was a PAT to github.
 
-If you are hitting a rate limit, I advise to either add this file/export or wait until it resets.
+If you are hitting a rate limit, I advise to either add this .env var or wait until it resets.
 
-The API endpoints accept this auth object and ups the rate limit to like 5000/hour once you are sending authorized requests
+The API endpoints accept this auth config and ups the rate limit to like 5000/hour once you are sending authorized requests
