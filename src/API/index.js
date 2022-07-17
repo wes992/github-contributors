@@ -1,16 +1,6 @@
 import axios from "axios";
 import { auth } from "../auth";
 
-export const getLoginInfo = async () => {
-  let result;
-
-  try {
-    result = await axios.get("https://github.com/login/oauth/authorize");
-  } catch (err) {
-    console.error(err);
-  }
-};
-
 export const getUserInformation = async (userName) => {
   let result;
   try {
