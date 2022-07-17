@@ -64,9 +64,7 @@ const ContributorsList = () => {
   ];
 
   const getPage = () => {
-    if (selectedView) {
-      return pages.find((page) => page.id === selectedView).content;
-    }
+    return pages.find((page) => page.id === selectedView).content;
   };
 
   return (
