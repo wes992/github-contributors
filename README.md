@@ -18,7 +18,7 @@ You may also see any lint errors in the console.
 
 ## AUTH
 
-App with run with public git rest API without Authorization;\
+App will run with public git rest API without Authorization;\
 but you will hit a rate limit. (It is something like 50/hour)
 
 Since I made this pretty quickly, I took the simple approach for auth.\
