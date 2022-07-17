@@ -27,12 +27,12 @@ You may also see any lint errors in the console.
 Again, while running locally;
 
 App will run with public git rest API without Authorization;\
-but you will likely hit a rate limit. (It is something like 50/hour)
+but you could possibly hit a rate limit. (It is something like 50/hour)
 
 Since I made this pretty quickly, I took the simple approach for auth.\
 
 I created a .env file at src level and added a REACT_APP_GH_TOKEN variable, which was a PAT to github.\
-(i.e. = REACT_APP_GH_TOKEN=<PersonalAccessToken>)
+(i.e. = REACT_APP_GH_TOKEN='<PersonalAccessToken>')
 
 If you are hitting a rate limit, I advise to either add this .env var or wait until it resets.
 
