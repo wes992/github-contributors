@@ -32,7 +32,7 @@ but you could possibly hit a rate limit. (It is something like 50/hour)
 Since I made this pretty quickly, I took the simple approach for auth.\
 
 I created a .env file at src level and added a REACT_APP_GH_TOKEN variable, which was a PAT to github.\
-(i.e. = REACT_APP_GH_TOKEN='<PersonalAccessToken>')
+(i.e. = REACT_APP_GH_TOKEN=**PersonalAccessToken**)
 
 If you are hitting a rate limit, I advise to either add this .env var or wait until it resets.
 
