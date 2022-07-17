@@ -9,14 +9,6 @@ import { useContributorContext } from "../Context/ContributorContext";
 const ContributorDetails = () => {
   const { selectedUser, setSelectedUser, getUser, loading } =
     useContributorContext();
-  // const [user, setUser] = useState({});
-  // const getuser = async (name) => {
-  //   if (name) {
-  //     const result = await getUserInformation(name);
-
-  //     setUser(result);
-  //   }
-  // };
 
   useEffect(() => {
     getUser(selectedUser.login);
