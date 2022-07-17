@@ -2,11 +2,6 @@ import axios from "axios";
 
 const { REACT_APP_GH_TOKEN } = process.env;
 
-// const auth = {
-//   username: REACT_APP_USERNAME || "",
-//   password: REACT_APP_GH_TOKEN || "",
-// };
-
 const config = {
   headers: {
     Authorization: REACT_APP_GH_TOKEN ? `Bearer ${REACT_APP_GH_TOKEN}` : null,
