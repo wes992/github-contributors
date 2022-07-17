@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App]
 
+You can start by cloning the repo.
+
 You will need to do a `yarn` or `npm install` to install dependencies intitially.
 
 In the project directory, you can run:
