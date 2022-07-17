@@ -1,7 +1,7 @@
 {
   "name": "github-profiles",
   "version": "0.1.0",
-  "homePage": "https://wes992.github.io/github-contributors",
+  "homepage": "https://wes992.github.io/github-contributors",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
