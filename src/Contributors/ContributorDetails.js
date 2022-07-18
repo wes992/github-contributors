@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { getUserInformation } from "../API";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import { Button, CardActions } from "@mui/material";
+import React, { useEffect } from "react";
+
+import {
+  Button,
+  CardActions,
+  Card,
+  CardContent,
+  CardMedia,
+} from "@mui/material";
+
 import { useContributorContext } from "../Context/ContributorContext";
 
 const ContributorDetails = () => {

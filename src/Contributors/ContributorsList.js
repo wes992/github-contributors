@@ -1,11 +1,19 @@
-import { Checkbox, FormControlLabel, List } from "@mui/material";
 import React, { useState } from "react";
+
+import {
+  Checkbox,
+  FormControlLabel,
+  List,
+  ToggleButtonGroup,
+  ToggleButton,
+} from "@mui/material";
+
 import { useContributorContext } from "../Context/ContributorContext";
-import { ContributorCard } from "./ContributorCard";
-import { ContributorDetails } from "./ContributorDetails";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { ContributorListItem } from "./ContributorListItem";
+import {
+  ContributorCard,
+  ContributorDetails,
+  ContributorListItem,
+} from "../Contributors";
 
 const ContributorsList = () => {
   const { contributors, selectedUser, loading } = useContributorContext();

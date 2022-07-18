@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+
+import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
+
 import { useContributorContext } from "../Context/ContributorContext";
-import { ContributorsList } from "./ContributorsList";
+import { ContributorsList } from "../Contributors";
 
 const SelectContributors = () => {
   const [selectedRepo, setSelectedRepo] = useState("");

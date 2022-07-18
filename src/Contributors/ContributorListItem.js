@@ -1,9 +1,13 @@
 import React from "react";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
+
+import {
+  ListItem,
+  Divider,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+} from "@mui/material";
+
 import { useContributorContext } from "../Context/ContributorContext";
 
 const ContributorListItem = (contributor) => {
