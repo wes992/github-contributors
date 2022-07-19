@@ -1,36 +1,38 @@
 import React, { createContext, useContext, useState } from "react";
-import { getRepoContributors, getUserInformation } from "../API";
+import { useAxios } from "../API";
 
 const ContributorContext = createContext();
 
 const ContributorContextProvider = ({ children }) => {
   const [contributors, setContributors] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
-  const [loading, setLoading] = useState(false);
+
+  const { getRepoContributors, getUserInformation, loading } = useAxios();
 
   const updateContributors = async (repo) => {
     setSelectedUser(null);
-    setLoading(true);
     try {
-      const repoContributors = await getRepoContributors(repo);
-      setContributors(repoContributors);
+      const result = await getRepoContributors(repo);
+      if (result.status === 200) {
+        setContributors(result.data);
+      }
     } catch (err) {
       console.error(err);
     }
-    setLoading(false);
   };
 
   const getUser = async (name) => {
-    setLoading(true);
     if (name) {
       try {
         const result = await getUserInformation(name);
-        setSelectedUser(result);
+
+        if (result.status === 200) {
+          setSelectedUser(result.data);
+        }
       } catch (err) {
         console.error(err);
       }
     }
-    setLoading(false);
   };
 
   const value = {
@@ -40,7 +42,6 @@ const ContributorContextProvider = ({ children }) => {
     setSelectedUser,
     updateContributors,
     loading,
-    setLoading,
     getUser,
   };
   return (

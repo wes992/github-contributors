@@ -9,30 +9,28 @@ const config = {
   },
 };
 
-export const getUserInformation = async (userName) => {
-  let result;
-  try {
-    result = await axios.get(`/users/${userName}`, config);
-    if (result.status === 200) {
-      return result.data;
-    }
-  } catch (err) {
-    console.log(err);
-  }
+let loading = false;
 
-  return result;
-};
+export const useAxios = () => {
+  const getUserInformation = async (userName) => {
+    loading = true;
+    const result = await axios
+      .get(`/users/${userName}`, config)
+      .catch((err) => console.log(err));
+    loading = false;
 
-export const getRepoContributors = async (repo) => {
-  let result;
-  try {
-    result = await axios.get(`/repos/${repo}/contributors`, config);
-    if (result.status === 200) {
-      return result.data;
-    }
-  } catch (err) {
-    console.log(err);
-  }
+    return result;
+  };
 
-  return result;
+  const getRepoContributors = async (repo) => {
+    loading = true;
+    const result = await axios
+      .get(`/repos/${repo}/contributors`, config)
+      .catch((err) => console.log(err));
+    loading = false;
+
+    return result;
+  };
+
+  return { getRepoContributors, getUserInformation, loading };
 };
