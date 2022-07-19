@@ -14,22 +14,26 @@ let loading = false;
 export const useAxios = () => {
   const getUserInformation = async (userName) => {
     loading = true;
-    const result = await axios
-      .get(`/users/${userName}`, config)
-      .catch((err) => console.log(err));
-    loading = false;
+    try {
+      const result = await axios.get(`/users/${userName}`, config);
+      loading = false;
 
-    return result;
+      return result;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const getRepoContributors = async (repo) => {
     loading = true;
-    const result = await axios
-      .get(`/repos/${repo}/contributors`, config)
-      .catch((err) => console.log(err));
-    loading = false;
+    try {
+      const result = await axios.get(`/repos/${repo}/contributors`, config);
 
-    return result;
+      loading = false;
+      return result;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return { getRepoContributors, getUserInformation, loading };
