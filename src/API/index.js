@@ -21,6 +21,10 @@ export const useAxios = () => {
       return result;
     } catch (err) {
       console.log(err);
+      return {
+        status: err.response.status,
+        message: err.response.data.message,
+      };
     }
   };
 
@@ -33,6 +37,10 @@ export const useAxios = () => {
       return result;
     } catch (err) {
       console.log(err);
+      return {
+        status: err.response.status,
+        message: err.response.data.message,
+      };
     }
   };
 

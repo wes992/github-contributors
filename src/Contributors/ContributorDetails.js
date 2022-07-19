@@ -11,7 +11,7 @@ import {
 import { useContributorContext } from "../Context/ContributorContext";
 
 const ContributorDetails = () => {
-  const { selectedUser, setSelectedUser, getUser, loading } =
+  const { selectedUser, setSelectedUser, getUser, loading, error } =
     useContributorContext();
 
   useEffect(() => {
@@ -20,6 +20,13 @@ const ContributorDetails = () => {
 
   const { avatar_url, name, login, bio, location, followers, following } =
     selectedUser;
+
+  if (error)
+    return (
+      <div className="main-container">
+        <div className="title">{error.message}</div>
+      </div>
+    );
 
   if (loading)
     return (

@@ -16,7 +16,8 @@ import {
 } from "../Contributors";
 
 const ContributorsList = () => {
-  const { contributors, selectedUser, loading } = useContributorContext();
+  const { contributors, selectedUser, loading, error } =
+    useContributorContext();
   const [hideBots, setHideBots] = useState(false);
   const [selectedView, setSelectedView] = useState("list-view");
 
@@ -25,6 +26,13 @@ const ContributorsList = () => {
       setSelectedView(view);
     }
   };
+
+  if (error)
+    return (
+      <div className="main-container">
+        <div className="title">{error.message}</div>
+      </div>
+    );
 
   if (selectedUser)
     return (
